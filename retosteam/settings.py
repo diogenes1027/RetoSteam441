@@ -26,9 +26,9 @@ with open(BASE_DIR / 'SECRET_KEY') as f:
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -79,8 +79,12 @@ WSGI_APPLICATION = 'retosteam.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'steam',
+        'USER': 'a01653251',
+        'PASSWORD': 'steam1027',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -123,3 +127,4 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
